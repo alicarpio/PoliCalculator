@@ -5,6 +5,7 @@ import './index.css'
 import PrimeVue from 'primevue/config';
 import 'primevue/resources/themes/aura-light-cyan/theme.css'
 import InputText from 'primevue/inputtext';
+import ToastService from 'primevue/toastservice';
 
 import {createPinia} from 'pinia'
 
@@ -17,4 +18,5 @@ app.use(router)
 app.use(pinia)
 app.use(PrimeVue);
 app.component('InputText', InputText)
+app.use(ToastService);
 app.mount('#app')
