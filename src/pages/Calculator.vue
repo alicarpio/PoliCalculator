@@ -14,13 +14,16 @@ const mejoramiento = ref();
   <div class="flex w-11/12 justify-end my-auto h-screen items-center">
     <div class="w-1/2 flex-col self -center">
       <div class="form flex flex-col">
-        <div>
-          <label for="porcentajePractico">% Práctico</label>
-          <InputText id="porcentajePractico"  class="myTailwindInput" placeholder="Porcentaje práctico" type="text" v-model="practPorcentaje"/>
-
-          <label for="pract">Nota práctica</label>
-          <InputText id="pract" type="text" v-model="practico"/>
-
+        <div class="flex mb-4 w-full">
+          <div class="w-1/3">
+            <label for="porcentajePractico" class="mr-3">% Práctico</label>
+            <InputText id="porcentajePractico" class="myTailwindInput" type="text"
+                       v-model="practPorcentaje"/>
+          </div>
+          <div class="">
+            <label for="pract" class="mr-3">Nota práctica</label>
+            <InputText id="pract" type="text" v-model="practico"/>
+          </div>
         </div>
 
         <label for="parcial1">Primer Parcial</label>
@@ -34,7 +37,7 @@ const mejoramiento = ref();
 
       </div>
 
-      <Button label="Calcular" severity="success" raised />
+      <Button label="Calcular" severity="success" raised/>
     </div>
 
 
@@ -43,7 +46,7 @@ const mejoramiento = ref();
 
 <style scoped>
 .myTailwindInput {
-  @apply bg-gray-100 dark:bg-gray-900 p-4 text-gray-900 dark:text-gray-50 rounded-full placeholder:text-gray-500 border border-transparent;
+  @apply bg-gray-100 dark:bg-gray-900 p-3 w-2/4 text-gray-900 dark:text-gray-50 rounded-full placeholder:text-gray-500 border border-transparent;
 }
 
 </style>
