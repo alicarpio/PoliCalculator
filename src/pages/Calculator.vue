@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from "vue";
-import InputText from "../components/InputText.vue";
+import InputNumber from "../components/InputNumber.vue";
+import ResultNote from "../components/ResultNote.vue";
 
 
 const practPorcentaje = ref();
@@ -11,35 +12,40 @@ const mejoramiento = ref();
 </script>
 
 <template>
-  <div class="flex w-11/12 justify-end my-auto h-screen items-center">
+
+  <div class="flex w-1/2 justify-between my-auto mx-auto h-screen items-center">
+    <ResultNote class="w-3/5 flex flex-col items-center"/>
     <div class="w-2/5 flex-col">
       <div class="form flex flex-col w-full">
         <div class="flex mb-4 w-full gap-4">
-          <div class="w-1/5">
-<!--            <label for="porcentajePractico" class="mr-3">% Práctico</label>-->
-<!--            <InputText id="porcentajePractico" class="w-full" type="text"-->
-<!--                       v-model="practPorcentaje"/>-->
+          <div class="w-36">
+            <label for="porcentajePractico" class="mr-3">% Práctico</label>
+            <InputNumber id="porcentajePractico" class="w-full" type="text"
+                       v-model="practPorcentaje"/>
+<!--            <span class="mt-2 invisible text-pink-600">-->
+<!--              Solo puedes ingresar números del 0 al 100-->
+<!--            </span>-->
           </div>
-          <div class="w-4/5">
-<!--            <label for="pract" class="mr-3">Nota práctica</label>-->
-<!--            <InputText id="pract" class="w-full" type="text" v-model="practico"/>-->
+          <div class="">
+            <label for="pract" class="mr-3">Nota práctica</label>
+            <InputNumber id="pract" class="w-full" type="text" v-model="practico"/>
           </div>
         </div>
 
-        <InputText/>
+        <label for="parcial1">Primer Parcial</label>
+        <InputNumber id="parcial1"  class="mb-4" type="text" v-model="primerParcial"/>
 
-<!--        <label for="parcial1">Primer Parcial</label>-->
-<!--        <InputText id="parcial1"  class="mb-4" type="text" v-model="primerParcial"/>-->
+        <label for="parcial2">Segundo Parcial</label>
+        <InputNumber id="parcial2" class="mb-4" type="text" v-model="segundoParcial"/>
 
-<!--        <label for="parcial2">Segundo Parcial</label>-->
-<!--        <InputText id="parcial2" class="mb-4" type="text" v-model="segundoParcial"/>-->
-
-<!--        <label for="mejora">Mejoramiento</label>-->
-<!--        <InputText id="mejora" class="mb-4" type="text" v-model="mejoramiento"/>-->
+        <label for="mejora">Mejoramiento</label>
+        <InputNumber id="mejora" class="mb-4" type="text" v-model="mejoramiento"/>
 
       </div>
 
 <!--      <Button label="Calcular" class="w-full" severity="success" raised/>-->
+
+
     </div>
 
 
