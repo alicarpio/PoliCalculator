@@ -21,7 +21,6 @@ const props = defineProps({
   }
 })
 const imgUrl = computed(() => {
-  console.log(props.prom.promedioFinal)
   if (props.prom.promedioFinal >= 6.00 && props.prom.promedioFinal <= 6.15) {
     return "../assets/images/barely-passed.svg"
   } else if (props.prom.promedioFinal >= 5.85 && props.prom.promedioFinal <= 5.99) {
@@ -35,9 +34,9 @@ const imgUrl = computed(() => {
 
 const showMessage = computed(() => {
   if (props.prom.pasado) {
-    return "¡Felicitaciones aprovastes!"
+    return "¡Felicitaciones aprobaste!"
   } else {
-    return "Lo siento, no aprovastes"
+    return "Lo siento, no aprobaste"
   }
 })
 
@@ -45,11 +44,11 @@ const showMessage = computed(() => {
 
 <template>
 <div>
-  <img :src="imgUrl" alt="Poli image">
-  <h1 class="font-bold text-4xl">{{showMessage}} </h1>
-  <h2>{{props.prom.promedioFinal}}</h2>
-  <h3>Nota final</h3>
-  <small>Necesitas {{props.prom.mejoramiento}} en mejoramiento para pasar.</small>
+  <img src="../assets/images/done.svg" class="w-96 h-96" alt="Poli image">
+  <h1 class="font-bold text-4xl text-sky-500">{{showMessage}} </h1>
+  <h2 class="text-3xl font-bold">{{props.prom.promedioFinal}}</h2>
+  <h3 class="mb-5 text-base">Nota final</h3>
+  <small class="text-base">Necesitas {{props.prom.mejoramiento}} en mejoramiento para pasar</small>
 </div>
 </template>
 

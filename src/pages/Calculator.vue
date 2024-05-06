@@ -2,6 +2,10 @@
 import {ref} from "vue";
 import InputNumber from "../components/InputNumber.vue";
 import ResultNote from "../components/ResultNote.vue";
+import {useGradesStore} from "../stores/grades.js";
+
+const store = useGradesStore();
+
 
 
 const practPorcentaje = ref();
