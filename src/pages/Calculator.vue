@@ -9,12 +9,19 @@ const practico = ref();
 const primerParcial = ref();
 const segundoParcial = ref();
 const mejoramiento = ref();
+
+const promFinal = {
+  promedioFinal: 6.00,
+  mejoramiento: 50.2,
+  pasado: true
+}
+
 </script>
 
 <template>
 
-  <div class="flex w-1/2 justify-between my-auto mx-auto h-screen items-center">
-    <ResultNote class="w-3/5 flex flex-col items-center"/>
+  <div class="flex w-2/3 justify-between my-auto mx-auto h-screen items-center">
+    <ResultNote class="w-3/5 flex flex-col items-center" :prom="promFinal"/>
     <div class="w-2/5 flex-col">
       <div class="form flex flex-col w-full">
         <div class="flex mb-4 w-full gap-4">
