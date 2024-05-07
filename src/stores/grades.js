@@ -2,8 +2,6 @@ import {defineStore} from 'pinia'
 import axios from "axios"
 
 export const useGradesStore = defineStore("grade", () => {
-
-
     /**
      * @typedef {Object} PromedioInfo
      * @property {boolean} pass
@@ -28,7 +26,7 @@ export const useGradesStore = defineStore("grade", () => {
      */
     async function calculateGrade(data) {
         try {
-            const gradeInfo = await axios.post("http://localhost:3000/promedios", JSON.stringify(data), {
+            const gradeInfo = await axios.post("http://localhost:3015/promedios", JSON.stringify(data), {
                 headers: {'content-type': 'application/json'}
             });
             return gradeInfo.data
