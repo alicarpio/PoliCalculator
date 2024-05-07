@@ -26,9 +26,11 @@ export const useGradesStore = defineStore("grade", () => {
      * @param {NotasFinales } data - Las notas del estudiante.
      * @returns {Promise<PromedioInfo|null>} - Información del promedio final del semestre.
      */
-    async function getGradeInfo(data) {
+    async function calculateGrade(data) {
         try {
-            const gradeInfo = await axios.post("http://localhost:3000/promedios", data)
+            const gradeInfo = await axios.post("http://localhost:3000/promedios", JSON.stringify(data), {
+                headers: {'content-type': 'application/json'}
+            });
             return gradeInfo.data
         } catch (e) {
             console.log(e)
@@ -37,6 +39,6 @@ export const useGradesStore = defineStore("grade", () => {
     }
 
     return {
-        getGradeInfo
+        calculateGrade
     }
 })

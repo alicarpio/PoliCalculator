@@ -2,6 +2,12 @@
 
 import {computed} from "vue";
 
+import AlmostDone from "../assets/images/almost-done.jpg";
+import BarelyPassed from "../assets/images/barely-passed.svg";
+import Done from "../assets/images/done.svg";
+import Failed from "../assets/images/failed.svg";
+
+
 const props = defineProps({
   prom: {
       promedioFinal: {
@@ -22,13 +28,13 @@ const props = defineProps({
 })
 const imgUrl = computed(() => {
   if (props.prom.promedioFinal >= 6.00 && props.prom.promedioFinal <= 6.15) {
-    return "../assets/images/barely-passed.svg"
+    return AlmostDone
   } else if (props.prom.promedioFinal >= 5.85 && props.prom.promedioFinal <= 5.99) {
-    return "../assets/images/almost-done.svg"
+    return BarelyPassed
   } else if (props.prom.promedioFinal > 6.15) {
-    return "../assets/images/done.svg"
+    return Done
   } else {
-    return "../assets/images/failed.svg"
+    return Failed
   }
 })
 
@@ -44,11 +50,11 @@ const showMessage = computed(() => {
 
 <template>
 <div>
-  <img src="../assets/images/done.svg" class="w-96 h-96" alt="Poli image">
+  <img :src="imgUrl" class="w-96 h-96" alt="Poli image">
   <h1 class="font-bold text-4xl text-sky-500">{{showMessage}} </h1>
   <h2 class="text-3xl font-bold">{{props.prom.promedioFinal}}</h2>
   <h3 class="mb-5 text-base">Nota final</h3>
-  <small class="text-base">Necesitas {{props.prom.mejoramiento}} en mejoramiento para pasar</small>
+  <small class="text-base" v-if="props.prom.mejoramiento !== 0">Necesitas {{props.prom.mejoramiento}} en mejoramiento para pasar</small>
 </div>
 </template>
 
