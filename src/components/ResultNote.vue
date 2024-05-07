@@ -54,7 +54,7 @@ const showMessage = computed(() => {
 
 <template>
 <div>
-  <img :src="imgUrl" class="w-80 h-80 " alt="Poli Image">
+  <img :src="imgUrl" class="w-80 h-72 " alt="Poli Image">
   <h1 class="font-bold text-4xl text-sky-500">{{showMessage}} </h1>
   <h2 class="text-3xl font-bold">{{props.prom.promedioFinal}}</h2>
   <h3 class="mb-5 text-base">Nota final</h3>

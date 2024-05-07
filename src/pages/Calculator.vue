@@ -47,7 +47,7 @@ function validateInput(){
 
 <template>
 
-  <div class="flex w-2/3 my-auto mx-auto h-screen items-center">
+  <div class="flex w-2/3 my-auto mx-auto h-screen justify-center items-center">
     <ResultNote  v-if="showResult" class="w-3/5 flex flex-col items-center" :prom="promFinal"/>
     <div class="w-2/5 flex-col justify-items-end">
       <div class="form flex flex-col w-full">
@@ -66,7 +66,7 @@ function validateInput(){
         <InputNumberLabel classAtt="mb-2" id="mejora" forId="mejora" v-model="mejoramiento" placeholder="Mejoramiento" label="Mejoramiento" :error=showError />
 
       </div>
-      <button @click="calculate" class="w-full bg-sky-500 text-white p-3 rounded-xl shadow-cyan-500/50 font-bold text-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-200">Calcular</button>
+      <button @click="calculate" class="w-full mt-3 bg-sky-500 text-white p-3 rounded-xl shadow-cyan-500/50 font-bold text-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-200">Calcular</button>
 
     </div>
   </div>
