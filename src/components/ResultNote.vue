@@ -43,9 +43,9 @@ const imgUrl = computed(() => {
 
 const showMessage = computed(() => {
   if (props.prom.pasado) {
-    return "¡Felicitaciones" + " "
+    return ["¡Felicitaciones","aprobastes!"]
   } else {
-    return "Lo siento, no aprobaste"
+    return ["Lo siento, no aprobaste"]
   }
 })
 
@@ -57,14 +57,14 @@ const showMejoramiento = computed(() => {
 
 <template>
 <div>
-  <img :src="imgUrl" class="w-52 h-48 sm:w-80 sm:h-72" alt="Poli Image">
+  <img :src="imgUrl" class="w-52 h-48 sm:w-72 sm:h-64 md:h-64 md:w-72"  alt="Poli Image">
   <div class="flex flex-col items-center">
-    <h1 class="font-bold sm:text-4xl text-2xl text-sky-500">{{showMessage}}</h1>
-    <span class="font-bold sm:text-4xl text-2xl text-sky-500">aprobastes!</span>
+    <h1 class="font-bold sm:text-3xl md:text-3xl lg:text-4xl text-2xl text-sky-500">{{showMessage[0]}}</h1>
+    <span class="font-bold sm:text-4xl text-2xl text-sky-500">{{ showMessage[1]}}</span>
   </div>
-  <h2 class="text-2xl sm:text-3xl font-bold">{{props.prom.promedioFinal}}</h2>
-  <h3 class="mb-5 text-smsm:text-base">Nota final</h3>
-  <small class="text-base" v-if="showMejoramiento">Necesitas {{props.prom.mejoramiento}} en mejoramiento para pasar</small>
+  <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold">{{props.prom.promedioFinal}}</h2>
+  <h3 class="mb-5 text-sm sm:text-base md:text-base">Nota final</h3>
+  <small class="text-base md:text-base" v-if="showMejoramiento">Necesitas {{props.prom.mejoramiento}} en mejoramiento para pasar</small>
 </div>
 </template>
 

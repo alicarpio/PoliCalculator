@@ -3,6 +3,7 @@ import { ref} from "vue";
 import ResultNote from "../components/ResultNote.vue";
 import {useGradesStore} from "../stores/grades.js";
 import InputNumberLabel from "../components/InputNumberLabel.vue";
+import NavBar from "../components/NavBar.vue";
 
 const store = useGradesStore();
 
@@ -38,10 +39,10 @@ async function calculate() {
 </script>
 
 <template>
-
-  <div class="flex w-full sm:w-3/4 my-auto mx-auto h-screen justify-center items-center">
+  <NavBar/>
+  <div class="flex w-full sm:w-11/12 md:w-5/6 my-auto mx-auto h-screen justify-center items-center ">
     <ResultNote v-if="showResult" class="w-3/5 flex flex-col items-center" :prom="promFinal"/>
-    <div class="w-1/2  sm:w-2/5 flex-col justify-items-end">
+    <div class="w-1/2 sm:w-2/5 flex-col justify-items-end">
       <div class="form flex flex-col w-full">
         <div class="flex gap-4">
           <div class="w-36">
@@ -58,7 +59,7 @@ async function calculate() {
         <InputNumberLabel  id="mejora" forId="mejora" v-model="mejoramiento" placeholder="Mejoramiento" label="Mejoramiento" />
 
       </div>
-      <button @click="calculate" class="w-full mt-2 sm:mt-3 bg-sky-500 text-white p-2 sm:p-3 rounded-xl font-bold text-sm sm:text-md hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200">Calcular</button>
+      <button @click="calculate" class="w-full mt-2 sm:mt-3 bg-sky-500 text-white p-2 sm:p-3 rounded-2xl shadow-lg font-bold text-sm sm:text-base lg:text-base hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200">Calcular</button>
 
     </div>
   </div>
