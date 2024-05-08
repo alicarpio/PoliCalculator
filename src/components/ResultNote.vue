@@ -42,23 +42,29 @@ const imgUrl = computed(() => {
 })
 
 const showMessage = computed(() => {
-  console.log(props.prom.pasado)
   if (props.prom.pasado) {
-    return "¡Felicitaciones aprobaste!"
+    return "¡Felicitaciones" + " "
   } else {
     return "Lo siento, no aprobaste"
   }
+})
+
+const showMejoramiento = computed(() => {
+  return props.prom.mejoramiento !== null
 })
 
 </script>
 
 <template>
 <div>
-  <img :src="imgUrl" class="w-80 h-72 " alt="Poli Image">
-  <h1 class="font-bold text-4xl text-sky-500">{{showMessage}} </h1>
-  <h2 class="text-3xl font-bold">{{props.prom.promedioFinal}}</h2>
-  <h3 class="mb-5 text-base">Nota final</h3>
-  <small class="text-base" v-if="props.prom.mejoramiento !== 0">Necesitas {{props.prom.mejoramiento}} en mejoramiento para pasar</small>
+  <img :src="imgUrl" class="w-52 h-48 sm:w-80 sm:h-72" alt="Poli Image">
+  <div class="flex flex-col items-center">
+    <h1 class="font-bold sm:text-4xl text-2xl text-sky-500">{{showMessage}}</h1>
+    <span class="font-bold sm:text-4xl text-2xl text-sky-500">aprobastes!</span>
+  </div>
+  <h2 class="text-2xl sm:text-3xl font-bold">{{props.prom.promedioFinal}}</h2>
+  <h3 class="mb-5 text-smsm:text-base">Nota final</h3>
+  <small class="text-base" v-if="showMejoramiento">Necesitas {{props.prom.mejoramiento}} en mejoramiento para pasar</small>
 </div>
 </template>
 
