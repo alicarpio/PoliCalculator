@@ -24,11 +24,11 @@ let promFinal = ref({
 });
 async function calculate() {
   const data = {
-    primer_parcial: primerParcial.value,
-    segundo_parcial: segundoParcial.value,
-    mejoramiento: mejoramiento.value,
-    practico: practico.value,
-    porcentaje_practico: practPorcentaje.value
+    primer_parcial: parseInt(primerParcial.value),
+    segundo_parcial: parseInt(segundoParcial.value),
+    mejoramiento: parseInt(mejoramiento.value),
+    practico: parseInt(practico.value),
+    porcentaje_practico: parseInt(practPorcentaje.value)
   }
 
   const gradeInfo = await store.calculateGrade(data);

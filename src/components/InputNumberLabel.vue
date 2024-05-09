@@ -15,6 +15,8 @@ const errorMessage = ref(null);
 
 
 watch(model, () => {
+  let value = model.value
+
   if (value.length === 0) {
     error.value = false
     errorMessage.value = null
@@ -24,8 +26,7 @@ watch(model, () => {
   const number = parseInt(value)
 
   if (isNaN(number)) {
-    error.value = true
-    errorMessage.value = "El campo debe ser un numero"
+    model.value = ""
     return
   }
 
@@ -59,13 +60,15 @@ const klass = computed(() => {
          :class="klass.label"
   >{{ label }}</label>
   <input
-      type="number" v-model="model" :id="id" aria-describedby="helper-text-explanation"
+      v-model="model"
+      :id="id"
+      aria-describedby="helper-text-explanation"
       :class="klass.input"
       :placeholder="placeholder"
       required
   />
   <p class="text-sm font-medium text-pink-600  dark:text-pink-500" v-if="error">
-    <span class="font-semibold">Error!</span>{{ errorMessage }}
+    <span class="font-semibold">Error! </span>{{ errorMessage }}
   </p>
 </template>
 
