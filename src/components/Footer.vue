@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <footer class="bg-white rounded-lg dark:bg-gray-900 m-4">
-    <div class="w-screen max-w-screen-xl mx-auto p-4 md:py-8">
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+  <footer class="w-full bg-white rounded-lg dark:bg-gray-900 fixed bottom-0">
+    <div class="max-w-screen-xl mx-auto py-6 sm:py-8 md:py-8">
+      <hr class="mb-6 border-gray-200 my-auto dark:border-gray-700" />
       <div class="flex justify-center">
         <span class="block mr-1 text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 Alina Carpio</span>
         <a href="https://github.com/alicarpio" target="_blank" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">

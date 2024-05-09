@@ -46,9 +46,9 @@ async function calculate() {
 <template>
   <NavBar/>
   <ErrorToast v-if="showToast"/>
-  <div class="flex flex-col-reverse md:flex md:flex-row w-full h-screen md:items-center	sm:w-11/12 md:w-5/6 my-auto mx-auto justify-center items-center ">
-    <ResultNote v-if="showResult" class="w-3/5 flex flex-col items-center" :prom="promFinal"/>
-    <div class="w-3/5 md:w-3/5 lg:w-2/5 flex-col content-center sm:justify-items-end">
+  <div class="relative flex flex-col-reverse sm:flex sm:flex-row md:flex md:flex-row w-full h-full md:items-center sm:w-11/12 md:w-11/12 mx-auto justify-center items-center ">
+    <ResultNote v-if="showResult" class="w-9/12 md:w-1/2 flex flex-col items-center" :prom="promFinal"/>
+    <div class="w-9/12 md:w-1/2 lg:w-2/5 flex-col content-center sm:justify-items-end">
       <div class="form flex flex-col w-full">
         <div class="flex gap-4">
           <div class="w-36">
@@ -68,7 +68,7 @@ async function calculate() {
       <button @click="calculate" class="w-full mt-3 sm:mt-3 md:mt-4 bg-sky-500 text-white p-2 sm:p-3 md:text-base rounded-2xl shadow-lg font-bold text-sm sm:text-sm lg:text-base hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200">Calcular</button>
     </div>
   </div>
-  
+  <Footer/>
 </template>
 
 <style scoped>

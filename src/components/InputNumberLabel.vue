@@ -42,13 +42,13 @@ watch(model, () => {
 const klass = computed(() => {
   if (error.value) {
     return {
-              input: "bg-red-50 border border-red-500 text-red-900 placeholder-red-700 p-1.5 text-sm rounded-xl sm:text-sm focus:outline-none focus:border-pink-400 focus:ring-1 focus:ring-pink-300 dark:bg-gray-700 focus:border-red-500 block w-full sm:p-2 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500",
-              label: "block text-sm mt-2 sm:text-base w-full font-normal md:text-base lg:text-base text-pink-700 dark:text-white"
+              input: "bg-red-50 border md:p-2.5 border-red-500 text-red-900 placeholder-red-700 p-1.5 text-sm rounded-xl sm:text-sm focus:outline-none focus:border-pink-400 focus:ring-1 focus:ring-pink-300 dark:bg-gray-700 focus:border-red-500 block w-full sm:p-2 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500",
+              label: "block text-sm mt-2 sm:text-sm w-full font-normal md:text-base lg:text-base text-pink-700 dark:text-white"
             }
   } else {
     return {
-      input:"sm:text-sm mb-0 text-sm block w-full bg-gray-100 dark:bg-gray-900 p-[6px] sm:p-2.5 md:text-base lg:text-base focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-300 rounded-2xl shadow-inner border border-slate-300 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
-      label: "block text-sm mt-2 sm:text-base w-full font-normal sm:text-sm md:text-base lg:text-base text-gray-900 dark:text-white"
+      input:"sm:text-sm mb-0 text-sm block md:p-2.5 w-full bg-gray-100 dark:bg-gray-900 p-[6px] sm:p-2.5 md:text-sm lg:text-base focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-300 rounded-2xl shadow-inner border border-slate-300 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+      label: "block text-sm mt-2 sm:text-sm w-full font-normal sm:text-sm md:text-base lg:text-base text-gray-900 dark:text-white"
     }
   }
 })
