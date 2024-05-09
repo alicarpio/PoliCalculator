@@ -4,6 +4,8 @@ import ResultNote from "../components/ResultNote.vue";
 import {useGradesStore} from "../stores/grades.js";
 import InputNumberLabel from "../components/InputNumberLabel.vue";
 import NavBar from "../components/NavBar.vue";
+import ErrorToast from "../components/ErrorToast.vue";
+import Footer from "../components/Footer.vue";
 
 const store = useGradesStore();
 
@@ -13,6 +15,7 @@ let primerParcial = ref(0);
 let segundoParcial = ref(0);
 let mejoramiento = ref(0);
 let showResult = ref(false);
+let showToast = ref(false);
 
 let promFinal = ref({
   promedioFinal: 0,
@@ -30,6 +33,8 @@ async function calculate() {
 
   const gradeInfo = await store.calculateGrade(data);
 
+  gradeInfo === null ? showToast.value = true : showToast.value = false;
+
   promFinal.value.promedioFinal = parseFloat((gradeInfo.grade / 10).toFixed(2));
   promFinal.value.mejoramiento = gradeInfo.missing !== null ? gradeInfo.missing.toFixed(2) : null;
   promFinal.value.pasado = gradeInfo.pass;
@@ -40,9 +45,10 @@ async function calculate() {
 
 <template>
   <NavBar/>
+  <ErrorToast v-if="showToast"/>
   <div class="flex flex-col-reverse md:flex md:flex-row w-full h-screen md:items-center	sm:w-11/12 md:w-5/6 my-auto mx-auto justify-center items-center ">
     <ResultNote v-if="showResult" class="w-3/5 flex flex-col items-center" :prom="promFinal"/>
-    <div class="w-3/5 md:w-2/5 flex-col content-center sm:justify-items-end">
+    <div class="w-3/5 md:w-3/5 lg:w-2/5 flex-col content-center sm:justify-items-end">
       <div class="form flex flex-col w-full">
         <div class="flex gap-4">
           <div class="w-36">
@@ -60,9 +66,9 @@ async function calculate() {
 
       </div>
       <button @click="calculate" class="w-full mt-3 sm:mt-3 md:mt-4 bg-sky-500 text-white p-2 sm:p-3 md:text-base rounded-2xl shadow-lg font-bold text-sm sm:text-sm lg:text-base hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200">Calcular</button>
-
     </div>
   </div>
+  
 </template>
 
 <style scoped>
