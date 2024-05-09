@@ -1,5 +1,5 @@
 <script setup>
-import { ref} from "vue";
+import {computed, ref} from "vue";
 import ResultNote from "../components/ResultNote.vue";
 import {useGradesStore} from "../stores/grades.js";
 import InputNumberLabel from "../components/InputNumberLabel.vue";
@@ -41,6 +41,14 @@ async function calculate() {
 
   showResult.value = true;
 }
+
+const isValidInput = computed(() => {
+  if(practPorcentaje.value > 100 || practico.value > 100 || primerParcial.value > 100 || segundoParcial.value > 100 || mejoramiento.value > 100){
+    return true
+  }
+  return false
+})
+
 </script>
 
 <template>
@@ -65,7 +73,16 @@ async function calculate() {
         <InputNumberLabel  id="mejora" forId="mejora" v-model="mejoramiento" placeholder="Mejoramiento" label="Mejoramiento" />
 
       </div>
-      <button @click="calculate" class="w-full mt-3 sm:mt-3 md:mt-4 bg-sky-500 text-white p-2 sm:p-3 md:text-base rounded-2xl shadow-lg font-bold text-sm sm:text-sm lg:text-base hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200">Calcular</button>
+
+
+      <button type="button"
+              @click="calculate"
+              class="w-full disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sky-500 mt-3 sm:mt-3 md:mt-4 bg-sky-500 text-white p-2 sm:p-3 md:text-base rounded-2xl shadow-lg font-bold text-sm sm:text-sm lg:text-base hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200 dark:bg-blue-500"
+              :disabled="isValidInput"
+      >
+        Calcular
+      </button>
+
     </div>
   </div>
   <Footer/>
