@@ -1,6 +1,13 @@
 import {defineStore} from 'pinia'
 import axios from "axios"
 
+let API_BASE_URL
+
+if (import.meta.env.PROD) {
+    API_BASE_URL = "https://policonnectapi.clubkokoa.com"
+} else {
+    API_BASE_URL = "http://localhost:3000"
+}
 export const useGradesStore = defineStore("grade", () => {
     /**
      * @typedef {Object} PromedioInfo
@@ -26,7 +33,7 @@ export const useGradesStore = defineStore("grade", () => {
      */
     async function calculateGrade(data) {
         try {
-            const gradeInfo = await axios.post("http://localhost:3015/promedios", JSON.stringify(data), {
+            const gradeInfo = await axios.post(`${API_BASE_URL}/promedios`, JSON.stringify(data), {
                 headers: {'content-type': 'application/json'}
             });
             return gradeInfo.data

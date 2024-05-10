@@ -22,6 +22,7 @@ let promFinal = ref({
   mejoramiento: null,
   pasado: false
 });
+
 async function calculate() {
   const data = {
     primer_parcial: parseInt(primerParcial.value),
@@ -43,7 +44,7 @@ async function calculate() {
 }
 
 const isValidInput = computed(() => {
-  if(practPorcentaje.value > 100 || practico.value > 100 || primerParcial.value > 100 || segundoParcial.value > 100 || mejoramiento.value > 100){
+  if (practPorcentaje.value > 100 || practico.value > 100 || primerParcial.value > 100 || segundoParcial.value > 100 || mejoramiento.value > 100) {
     return true
   }
   return false
@@ -54,23 +55,37 @@ const isValidInput = computed(() => {
 <template>
   <NavBar/>
   <ErrorToast v-if="showToast"/>
-  <div class="relative flex flex-col-reverse sm:flex sm:flex-row md:flex md:flex-row w-full h-full md:items-center sm:w-11/12 md:w-11/12 mx-auto justify-center items-center ">
+  <div
+      class="relative flex flex-col-reverse sm:flex sm:flex-row md:flex md:flex-row w-full h-full md:items-center sm:w-11/12 md:w-11/12 mx-auto justify-center items-center ">
     <ResultNote v-if="showResult" class="w-9/12 md:w-1/2 flex flex-col items-center" :prom="promFinal"/>
     <div class="w-9/12 md:w-1/2 lg:w-2/5 flex-col content-center sm:justify-items-end">
       <div class="form flex flex-col w-full">
         <div class="flex gap-4">
           <div class="w-36">
-            <InputNumberLabel id="porcentajePract" forId="porcentajePract" v-model="practPorcentaje" placeholder="% Práctico" label="% Práctico" />
+            <InputNumberLabel
+                id="porcentajePract"
+                forId="porcentajePract"
+                v-model="practPorcentaje"
+                placeholder="% Práctico"
+                label="% Práctico"/>
           </div>
           <div class="w-full">
-            <InputNumberLabel id="pract" forId="pract" v-model="practico" placeholder="Nota práctica" label="Nota práctica"/>
+            <InputNumberLabel
+                id="pract"
+                forId="pract"
+                v-model="practico"
+                placeholder="Nota práctica"
+                label="Nota práctica"/>
           </div>
         </div>
-        <InputNumberLabel  id="parcial1" forId="parcial1" v-model="primerParcial" placeholder="Parcial 1" label="Parcial 1" />
+        <InputNumberLabel id="parcial1" forId="parcial1" v-model="primerParcial" placeholder="Parcial 1"
+                          label="Parcial 1"/>
 
-        <InputNumberLabel  id="parcial2" forId="parcial2" v-model="segundoParcial" placeholder="Parcial 2" label="Parcial 2" />
+        <InputNumberLabel id="parcial2" forId="parcial2" v-model="segundoParcial" placeholder="Parcial 2"
+                          label="Parcial 2"/>
 
-        <InputNumberLabel  id="mejora" forId="mejora" v-model="mejoramiento" placeholder="Mejoramiento" label="Mejoramiento" />
+        <InputNumberLabel id="mejora" forId="mejora" v-model="mejoramiento" placeholder="Mejoramiento"
+                          label="Mejoramiento"/>
 
       </div>
 
