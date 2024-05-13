@@ -4,7 +4,7 @@
 
 <template>
   <footer class="w-full bg-white rounded-lg dark:bg-gray-900 fixed bottom-0">
-    <div class=" mx-auto border border-t-gray-300 py-6">
+    <div class=" mx-auto border border-t-gray-300 py-5">
       <div class="flex justify-center">
         <span class="block mr-1 text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 Alina Carpio</span>
         <a href="https://github.com/alicarpio" target="_blank"

@@ -92,7 +92,7 @@ const isValidInput = computed(() => {
 
       <button type="button"
               @click="calculate"
-              class="w-full disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sky-500 mt-3 sm:mt-3 md:mt-4 bg-sky-500 text-white p-2 sm:p-3 md:text-base rounded-2xl shadow-lg font-bold text-sm sm:text-sm lg:text-base hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200 dark:bg-blue-500"
+              class="w-full disabled:opacity-50 mb-7 disabled:cursor-not-allowed disabled:hover:bg-sky-500 mt-3 sm:mt-5 md:mt-5 bg-sky-500 text-white p-2 sm:p-3 md:text-base rounded-2xl shadow-lg font-bold text-sm sm:text-sm lg:text-base hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200 dark:bg-blue-500"
               :disabled="isValidInput"
       >
         Calcular
